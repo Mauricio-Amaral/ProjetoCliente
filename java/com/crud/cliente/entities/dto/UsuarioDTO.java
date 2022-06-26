@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.crud.cliente.entities.Usuario;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class UsuarioDTO {
@@ -26,14 +27,6 @@ public class UsuarioDTO {
 		super();
 	}
 	
-	public UsuarioDTO(Integer id, String nome, String email, String senha) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-	}
-
 	public Integer getId() {
 		return id;
 	}

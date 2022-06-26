@@ -29,12 +29,11 @@ public class Cliente {
 		this.bairro = clienteDTO.getBairro();
 		this.telefone = clienteDTO.getTelefone();
 	}
-
-	public Cliente(Integer id, String nome, String cpf, String logradouro, Integer numero, String bairro,
-	String telefone) {
+	
+	public Cliente() {
 		super();
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}

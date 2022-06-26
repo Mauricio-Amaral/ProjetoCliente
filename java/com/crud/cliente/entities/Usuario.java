@@ -24,9 +24,10 @@ public class Usuario {
 		this.nome = usuarioDTO.getNome();
 		this.email = usuarioDTO.getEmail();
 		this.senha = usuarioDTO.getSenha();
+		this.dataCriacao = usuarioDTO.getDataCriacao();
 	}
-
-	public Usuario(Integer id, String nome, String email, String senha) {
+	
+	public Usuario() {
 		super();
 	}
 	
@@ -53,6 +54,12 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public LocalDate getDataCriacao() {
+		return dataCriacao;
+	}
+	public void setDataCriacao(LocalDate dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
 
 	@Override

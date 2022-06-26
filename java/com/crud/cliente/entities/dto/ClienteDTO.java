@@ -26,17 +26,6 @@ public class ClienteDTO {
 		super();
 	}
 	
-	public ClienteDTO(Integer id, String nome, String logradouro, Integer numero, String bairro, String telefone) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.logradouro = logradouro;
-		this.numero = numero;
-		this.bairro = bairro;
-		this.telefone = telefone;
-	}
-
 	public Integer getId() {
 		return id;
 	}
