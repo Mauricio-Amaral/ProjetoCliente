@@ -1,22 +1,31 @@
 package com.crud.cliente.entities.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-public class ClienteDTO {
+import com.crud.cliente.entities.Cliente;
+
+public class ClienteDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	
 	@CPF
+	@NotNull(message = "Campo Obrigatório")
 	private String cpf;
 	
 	@Column(unique = true)
+	@NotNull(message = "Campo Obrigatório")
 	private String logradouro;
 	private Integer numero;
 	private String bairro;
@@ -26,6 +35,17 @@ public class ClienteDTO {
 		super();
 	}
 	
+	public ClienteDTO(Cliente cliente) {
+		super();
+		this.id = cliente.getId();
+		this.nome = cliente.getNome();
+		this.cpf = cliente.getCpf();
+		this.logradouro = cliente.getLogradouro();
+		this.numero = cliente.getNumero();
+		this.bairro = cliente.getBairro();
+		this.telefone = cliente.getTelefone();
+	}
+
 	public Integer getId() {
 		return id;
 	}

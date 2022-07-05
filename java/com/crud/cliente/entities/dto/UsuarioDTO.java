@@ -1,5 +1,6 @@
 package com.crud.cliente.entities.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -10,7 +11,8 @@ import javax.persistence.Id;
 import com.crud.cliente.entities.Usuario;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class UsuarioDTO {
+public class UsuarioDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -27,6 +29,15 @@ public class UsuarioDTO {
 		super();
 	}
 	
+	public UsuarioDTO(Usuario usuario) {
+		super();
+		this.id = usuario.getId();
+		this.nome = usuario.getNome();
+		this.email = usuario.getEmail();
+		this.senha = usuario.getSenha();
+		this.dataCriacao= usuario.getDataCriacao();
+	}
+
 	public Integer getId() {
 		return id;
 	}
