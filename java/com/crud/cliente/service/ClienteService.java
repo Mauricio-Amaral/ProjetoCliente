@@ -28,5 +28,10 @@ public class ClienteService {
 		throw new DataIntegrityViolationExceptions("CPF cadastrado");
 		}
 	}
+	
+	public Cliente findById(Integer id) {
+		Optional<Cliente> optional = clienteRepository.findById(id);
+		return optional.orElse(null);
+	}
 
 }
