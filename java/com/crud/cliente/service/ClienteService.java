@@ -1,6 +1,9 @@
 package com.crud.cliente.service;
 
+import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +35,22 @@ public class ClienteService {
 	public Cliente findById(Integer id) {
 		Optional<Cliente> optional = clienteRepository.findById(id);
 		return optional.orElse(null);
+	}
+	
+	public List<Cliente> findAll() {
+		return clienteRepository.findAll();
+	}
+	
+	public Cliente update(Integer id, @Valid ClienteDTO clienteDTO) {
+		clienteDTO.setId(id);
+		Cliente cli = findById(id);
+		cli = new Cliente(clienteDTO);
+		return clienteRepository.save(cli);
+	}
+	
+	public void delete(Integer id) {
+		Cliente cli = findById(id);
+		clienteRepository.deleteById(id);
 	}
 
 }
