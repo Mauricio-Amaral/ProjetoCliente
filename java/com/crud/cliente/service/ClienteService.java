@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.crud.cliente.entities.Cliente;
 import com.crud.cliente.entities.dto.ClienteDTO;
 import com.crud.cliente.repositories.ClienteRepository;
+import com.crud.cliente.service.exceptions.ObjectNotFoundExeptions;
 
 @Service
 public class ClienteService {
@@ -34,7 +35,7 @@ public class ClienteService {
 	
 	public Cliente findById(Integer id) {
 		Optional<Cliente> optional = clienteRepository.findById(id);
-		return optional.orElse(null);
+		return optional.orElseThrow(() -> new ObjectNotFoundExeptions("Objeto não encontrado ID: " + id));
 	}
 	
 	public List<Cliente> findAll() {
