@@ -18,6 +18,8 @@ public class ClienteDTO implements Serializable {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotNull(message = "Campo Obrigatório")
 	private String nome;
 	
 	@CPF
